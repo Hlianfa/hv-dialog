@@ -1,0 +1,18 @@
+{
+  "name": "hv-dialog",
+  "version": "1.0.0",
+  "description": "Mobile confirmDialog & toast plugins",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "hv-dialog"
+  },
+  "keywords": [
+    "dialog"
+  ],
+  "author": "HLianfa",
+  "license": "ISC"
+}

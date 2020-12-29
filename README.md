@@ -6,7 +6,7 @@ npm i hv-dialog
 import hvDialog from 'hv-dialog'
 <br/>
 Vue.use(hvDialog)
-# use in dom
+# useage
 <pre>
 this.$toast(
     {

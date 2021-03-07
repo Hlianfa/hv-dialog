@@ -5,7 +5,16 @@
         <div v-if="type != ''">
           <i class="iconfont" :class="'icon-hv-confirm-'+type"/>
         </div>
-        <div class="hv-confirm-dialog-content-text">{{content}}</div>
+        <div
+          v-if="innerHtml"
+          class="hv-confirm-dialog-content-text"
+          v-html="content">
+        </div>
+        <div
+          v-else
+          class="hv-confirm-dialog-content-text">
+          {{content}}
+        </div>
       </div>
       <div class="hv-confirm-dialog-btns">
         <div class="hv-confirm-dialog-btns-btn" @click="cancelHandler">{{cancelButtonText}}</div>
@@ -19,10 +28,11 @@ export default {
   data() {
     return {
       showDialog: true,
-      content: "",
-      type: "",// success、warning、error
-      confirmButtonText: "",
-      cancelButtonText: "",
+      content: '',
+      type: '', // success、warning、error
+      innerHtml: false,
+      confirmButtonText: '',
+      cancelButtonText: '',
       confirm: null,
       cancel: null
     };
@@ -39,7 +49,7 @@ export default {
   }
 };
 </script>
-<style lang="less" scoped>
+<style scoped>
 .hv-confirm {
   width: 100vw;
   height: 100vh;
@@ -47,46 +57,47 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 9999;
-  &-dialog {
-    width: 77vw;
-    border-radius: 8px;
-    background: #fff;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    font-size: 1rem;
-    text-align: center;
-    &-content {
-      width: 100%;
-      padding: 20px;
-      .iconfont {
-        font-size: 2.5rem;
-      }
-      &-text {
-        width: 100%;
-        color: #7d7e80;
-      }
-    }
-    &-btns {
-      width: 100%;
-      border-top: 1px solid #f1f3f4;
-      display: flex;
-      justify-content: space-between;
-      &-btn {
-        width: 50%;
-        height: 45px;
-        line-height: 45px;
-        border-right: 1px solid #f1f3f4;
-        box-sizing: border-box;
-      }
-      &-btn:last-child {
-        color: #1989fa;
-        border-right: none;
-      }
-    }
-  }
+  z-index: 999;
+}
+.hv-confirm-dialog {
+  width: 77vw;
+  border-radius: 3px;
+  background: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  font-size: .5rem;
+  text-align: center;
+}
+.hv-confirm-dialog-content {
+  width: 100%;
+  padding: .3rem;
+}
+.hv-confirm-dialog-content .iconfont {
+  font-size: 1.5rem;
+}
+.hv-confirm-dialog-content-text {
+  width: 100%;
+  color: #7d7e80;
+  word-break: break-all;
+}
+.hv-confirm-dialog-btns {
+  width: 100%;
+  border-top: 1px solid #f1f3f4;
+  display: flex;
+  justify-content: space-between;
+}
+.hv-confirm-dialog-btns-btn {
+  width: 50%;
+  height: 1rem;
+  line-height: 1rem;
+  border-right: 1px solid #f1f3f4;
+  box-sizing: border-box;
+}
+.hv-confirm-dialog-btns-btn:last-child {
+  color: #1989fa;
+  border-right: none;
 }
 .hv-confirm-success {
   color: #67c23a;

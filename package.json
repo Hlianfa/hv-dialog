@@ -1,6 +1,6 @@
 {
   "name": "hv-dialog",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Mobile confirmDialog & toast plugins",
   "main": "index.js",
   "scripts": {
